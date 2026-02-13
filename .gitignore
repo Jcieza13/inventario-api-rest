@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Archivos de crash de Java
+hs_err_pid*
+replay_pid*
+*.log
