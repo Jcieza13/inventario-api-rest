@@ -66,13 +66,72 @@ git clone https://github.com/Jcieza13/inventario-api-rest.git
    spring.jpa.hibernate.ddl-auto=update
    
 4. Compila y ejecuta el proyecto con Maven:
-   ```
+   ```bash
    ./mvnw spring-boot:run
    ```
    Ejemplo de uso
+   
    Obtener todos los productos
-   -  `GET http://localhost:8080/inventario-app/productos`
-     Respuesta:
+
+    GET:
+```
+     http://localhost:8080/inventario-app/productos
+```
+
+
+Respuesta:
+```
+[
+  {
+    "idProducto": 1,
+    "descripcion": "Teclado mecánico",
+    "precio": 49.99,
+    "existencia": 10
+  },
+  {
+    "idProducto": 2,
+    "descripcion": "Mouse óptico",
+    "precio": 19.99,
+    "existencia": 25
+  }
+]
+```
+Crear un producto:
+```
+POST http://localhost:8080/inventario-app/productos
+Content-Type: application/json
+
+{
+  "descripcion": "Monitor 24 pulgadas",
+  "precio": 149.99,
+  "existencia": 5
+}
+```
+
+Respuesta:
+
+```
+{
+  "idProducto": 3,
+  "descripcion": "Monitor 24 pulgadas",
+  "precio": 149.99,
+  "existencia": 5
+}
+```
+
+---
+Buenas prácticas implementadas:
+
+Arquitectura por capas: Controlador, Servicio, Repositorio.
+
+Manejo de excepciones global: Para errores y recursos no encontrados.
+
+Uso de JPA/Hibernate: Para persistencia de datos de manera eficiente.
+
+Documentación mínima: Para endpoints REST básicos.
+
+---
+
 
 
 
