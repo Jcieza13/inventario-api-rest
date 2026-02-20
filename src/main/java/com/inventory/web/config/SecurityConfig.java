@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF usando una lambda explícita
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/login").permitAll() // Permitir acceso a endpoints de autenticación
-                        .requestMatchers("/api/auth/register").hasRole("ADMIN")// Solo ADMIN puede registrar
+                        .requestMatchers("/api/auth/**").permitAll() // permitir acceso a todos
                         .anyRequest().authenticated() // Todos los demás endpoints requieren autenticación
                 )
                 .sessionManagement(session -> session
